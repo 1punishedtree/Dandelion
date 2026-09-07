@@ -1,0 +1,64 @@
+name: PasswordGenerator
+options:
+  bundleIdPrefix: com.pg
+  deploymentTarget:
+    iOS: "17.0"
+    macOS: "14.0"
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    GENERATE_INFOPLIST_FILE: YES
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+    ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+
+targets:
+  PasswordGenerator-iOS:
+    type: application
+    platform: iOS
+    sources:
+      - path: PasswordGenerator
+    settings:
+      base:
+        PRODUCT_NAME: PasswordGenerator
+        PRODUCT_BUNDLE_IDENTIFIER: com.pg.PasswordGenerator
+        TARGETED_DEVICE_FAMILY: "1,2"
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_CFBundleDisplayName: PasswordGenerator
+        INFOPLIST_KEY_UISupportedInterfaceOrientations: "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+        CODE_SIGN_STYLE: Automatic
+
+  PasswordGenerator-macOS:
+    type: application
+    platform: macOS
+    sources:
+      - path: PasswordGenerator
+    settings:
+      base:
+        PRODUCT_NAME: PasswordGenerator
+        PRODUCT_BUNDLE_IDENTIFIER: com.pg.PasswordGenerator
+        INFOPLIST_KEY_CFBundleDisplayName: PasswordGenerator
+        INFOPLIST_KEY_NSHumanReadableCopyright: ""
+        COMBINE_HIDPI_IMAGES: YES
+        ENABLE_HARDENED_RUNTIME: YES
+        CODE_SIGN_STYLE: Automatic
+        CODE_SIGN_IDENTITY: "-"
+        CODE_SIGNING_REQUIRED: NO
+
+  PasswordGeneratorTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: PasswordGeneratorTests
+    dependencies:
+      - target: PasswordGenerator-macOS
+
+schemes:
+  PasswordGenerator-macOS:
+    build:
+      targets:
+        PasswordGenerator-macOS: all
+    test:
+      targets:
+        - PasswordGeneratorTests
