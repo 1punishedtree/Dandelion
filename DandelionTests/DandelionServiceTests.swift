@@ -1,8 +1,8 @@
 import XCTest
 
-@testable import PasswordGenerator
+@testable import Dandelion
 
-final class PasswordGeneratorServiceTests: XCTestCase {
+final class DandelionServiceTests: XCTestCase {
     func testGenerateReturnsEmptyWhenNoCharsets() {
         let options = PasswordOptions(
             includeUppercase: false,

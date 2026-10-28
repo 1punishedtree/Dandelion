@@ -12,8 +12,8 @@ struct PasswordOptions: Equatable {
     var includeLowercase: Bool = true
     var includeNumbers: Bool = true
     var includeSymbols: Bool = false
-    var length: Int = 12
-    var count: Int = 5
+    var length: Int = 32
+    var count: Int = 2
 
     var excludeAmbiguousCharacters: Bool = false
     var symbolSet: SymbolSet = .basic
@@ -80,8 +80,8 @@ enum PasswordPreset: String, CaseIterable, Identifiable {
                 includeLowercase: true,
                 includeNumbers: true,
                 includeSymbols: false,
-                length: 12,
-                count: 5,
+                length: 32,
+                count: 2,
                 excludeAmbiguousCharacters: false,
                 symbolSet: .basic,
                 autoClearClipboard: true,

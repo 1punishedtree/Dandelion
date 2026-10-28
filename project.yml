@@ -1,4 +1,4 @@
-name: PasswordGenerator
+name: Dandelion
 options:
   bundleIdPrefix: com.pg
   deploymentTarget:
@@ -14,31 +14,33 @@ settings:
     ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
 
 targets:
-  PasswordGenerator-iOS:
+  Dandelion-iOS:
     type: application
     platform: iOS
     sources:
-      - path: PasswordGenerator
+      - path: Dandelion
     settings:
       base:
-        PRODUCT_NAME: PasswordGenerator
-        PRODUCT_BUNDLE_IDENTIFIER: com.pg.PasswordGenerator
+        PRODUCT_NAME: random
+        PRODUCT_MODULE_NAME: Dandelion
+        PRODUCT_BUNDLE_IDENTIFIER: com.pg.Dandelion
         TARGETED_DEVICE_FAMILY: "1,2"
         INFOPLIST_KEY_UILaunchScreen_Generation: YES
-        INFOPLIST_KEY_CFBundleDisplayName: PasswordGenerator
+        INFOPLIST_KEY_CFBundleDisplayName: random
         INFOPLIST_KEY_UISupportedInterfaceOrientations: "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
         CODE_SIGN_STYLE: Automatic
 
-  PasswordGenerator-macOS:
+  Dandelion-macOS:
     type: application
     platform: macOS
     sources:
-      - path: PasswordGenerator
+      - path: Dandelion
     settings:
       base:
-        PRODUCT_NAME: PasswordGenerator
-        PRODUCT_BUNDLE_IDENTIFIER: com.pg.PasswordGenerator
-        INFOPLIST_KEY_CFBundleDisplayName: PasswordGenerator
+        PRODUCT_NAME: random
+        PRODUCT_MODULE_NAME: Dandelion
+        PRODUCT_BUNDLE_IDENTIFIER: com.pg.Dandelion
+        INFOPLIST_KEY_CFBundleDisplayName: random
         INFOPLIST_KEY_NSHumanReadableCopyright: ""
         COMBINE_HIDPI_IMAGES: YES
         ENABLE_HARDENED_RUNTIME: YES
@@ -46,19 +48,19 @@ targets:
         CODE_SIGN_IDENTITY: "-"
         CODE_SIGNING_REQUIRED: NO
 
-  PasswordGeneratorTests:
+  DandelionTests:
     type: bundle.unit-test
     platform: macOS
     sources:
-      - path: PasswordGeneratorTests
+      - path: DandelionTests
     dependencies:
-      - target: PasswordGenerator-macOS
+      - target: Dandelion-macOS
 
 schemes:
-  PasswordGenerator-macOS:
+  Dandelion-macOS:
     build:
       targets:
-        PasswordGenerator-macOS: all
+        Dandelion-macOS: all
     test:
       targets:
-        - PasswordGeneratorTests
+        - DandelionTests

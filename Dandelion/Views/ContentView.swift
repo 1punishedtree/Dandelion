@@ -2,6 +2,20 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        #if os(macOS)
+        HStack(spacing: 0) {
+            OptionsView()
+                .frame(width: 300)
+
+            Rectangle()
+                .fill(Color.black.opacity(0.08))
+                .frame(width: 1)
+
+            PasswordListView()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+        .frame(width: 1000, height: 700)
+        #else
         TabView {
             OptionsView()
                 .tabItem {
@@ -13,8 +27,6 @@ struct ContentView: View {
                     Label("密码", systemImage: "key.fill")
                 }
         }
-        #if os(macOS)
-        .frame(minWidth: 420, minHeight: 480)
         #endif
     }
 }

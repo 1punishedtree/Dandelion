@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct PasswordGeneratorApp: App {
+struct DandelionApp: App {
     @StateObject private var store = PasswordStore()
 
     var body: some Scene {
@@ -11,6 +11,8 @@ struct PasswordGeneratorApp: App {
         }
         #if os(macOS)
         .windowResizability(.contentSize)
+        .defaultSize(width: 1000, height: 700)
+        .windowStyle(.hiddenTitleBar)
         #endif
     }
 }
